@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Prevent Default</title>
+     <style>
+        form {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Task 4: Form Prevent Default</h2>
+    <form id="myForm">
+        <input type="text" placeholder="Enter your name" required>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="message"></p>
+
+     <!-- <form id="myForm">
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <button type="submit">Submit</button>
+    </form> -->
+
+    <!-- <div id="message"></div> -->
+    <script>
+        //task4: form submit krne pe page reload na ho aur neeche message show ho "Form Submitted!"
+        document.getElementById("myForm").addEventListener("submit", (e) => {
+            e.preventDefault(); //Page reload roko!
+            document.getElementById("message").textContent = "Form Submitted!";
+        });
+
+
+        // Task 4: Form submit hone pe page reload mat hone do and console me form data print kro and neeche message show kro "Form submitted! Welcome [name]"
+
+const form = document.getElementById("myForm");
+const message = document.getElementById("message");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault(); // ⭐ Page reload rokta hai
+    
+    // Form data get karo
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    
+    // Console mein print karo
+    console.log("Form Submitted!");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    
+    // Message show karo
+    message.textContent = `✅ Form submitted! Welcome ${name}`;
+    
+    // Form reset karo
+    form.reset();
+});
+
+    </script>
+    
+</body>
+</html>
