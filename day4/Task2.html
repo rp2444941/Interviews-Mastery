@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+    <style>
+        #display {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid green;
+            min-height: 30px;
+            font-size: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Input Example</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <p id="output"></p>
+    <script>
+        //task2: input me jo type kro woh neeche show ho.
+
+        const input = document.getElementById("nameInput");
+        const display = document.getElementById("output");
+        input.addEventListener("input", () => {
+            display.textContent = input.value;
+        });
+
+
+    /**Real-time update hoga!
+     * Input box: "Hello"
+       Display box: Hello
+
+      Input box: "Hello World"
+      Display box: Hello World
+     */
+    </script>
+</body>
+
+</html>
