@@ -26,8 +26,8 @@
 
         const input = document.getElementById("nameInput");
         const display = document.getElementById("output");
-        input.addEventListener("input", () => {
-            display.textContent = input.value;
+        input.addEventListener("input", (e) => {
+            display.textContent = e.input.value;
         });
 
 
