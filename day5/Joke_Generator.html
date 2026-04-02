@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+</head>
+
+<body>
+    <!-- Goal:
+Button click → fetch random joke → show in paragraph -->
+    <button id="jokeBtn">Get Joke</button>
+    <p id="joke"></p>
+    <script>
+        document.getElementById('jokeBtn').addEventListener('click', async () => {
+            const jokeEl = document.getElementById('joke');
+            jokeEl.textContent = 'Loading...';
+            try {
+                const res = await fetch("https://api.chucknorris.io/jokes/random");
+                const data = await res.json();
+                jokeEl.textContent = data.value;
+            } catch (error) {
+                jokeEl.textContent = 'Error fetching joke.';
+            }
+        });
+        /*
+Concepts Applied:
+Async/Await
+Fetch API
+DOM manipulation
+Error handling*/
+    </script>
+</body>
+
+</html>
